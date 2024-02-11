@@ -1,7 +1,11 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
-//   configureWebpack: {
-//     resolve: { fallback: { fs: false } },
-//   },
+  chainWebpack: config => {
+    config.plugin('html')
+      .tap(args => {
+        args[0].title = "Noodles";
+        return args;
+      })
+  }
 })
