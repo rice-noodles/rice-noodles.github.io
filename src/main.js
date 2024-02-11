@@ -16,6 +16,8 @@ import 'highlight.js/lib/common'
 
 const app = createApp(App)
 
+document.title = 'Noodles'
+
 app.directive('highlight', function (el) {
   let highlight = el.querySelectorAll('pre code')
   highlight.forEach((block) => {
