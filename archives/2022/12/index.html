@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://rice-noodles.github.io/archives/2022/11/index.html">
+<meta property="og:url" content="https://rice-noodles.github.io/archives/2022/12/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Noodles">
@@ -399,32 +399,17 @@
                 <main class="main index-page">
             
         <article class="index-post">
-            <a class="abstract-title" href="/2022/11/13/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
-                <span class="abstract-title-text">使用Hexo搭建个人博客</span>
+            <a class="abstract-title" href="/2022/12/19/HashMap%E8%A7%A3%E6%9E%90/">
+                <span class="abstract-title-text">HashMap解析</span>
             </a>
             <div class="abstract-content">
-                一、环境准备
-安装Node.js
-安装Git
-通过npm安装Hexo命令行工具：npm install -g hexo-cli
-
-二、 初始化Hexo项目
-创建项目文件夹：
-12hexo init myblog   # myblog为项目名称cd myblog
-
-安装依赖包：npm install
-
-本地运行和预览，服务启动完毕后，访问http://localhost:4000查看效果。
-1234# 1.生成静态文件hexo g   # 或 hexo generate# 2.启动本地服务hexo s   # 或 hexo server
-
-三、配置GitHub仓库
-创建GitHub仓库：在...
+                一、部分常量说明1234567891011121314151617181920/** * 1.默认初始化容量，默认是16 * 2.必须是2的幂次方，便于通过位运算 (n - 1) &amp; hash 快速定位桶索引。较小的初始容量平衡了内存占用和哈希* 碰撞概率。*/static final int DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4;/*** 最大容量，2的30次方 */static final int MAXIMUM_CAPACITY = 1 &lt;&lt; 30;/*** 装载因子，0.75是统计出来的，能够平衡时间和空间成本 */s...
             </div>
             <!-- read more -->
             <div class="abstract-post-meta">
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2025/04/10">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/11/13</span>
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/12/19</span>
                 </div>
                 <!-- tags -->
             </div>
