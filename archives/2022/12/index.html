@@ -399,17 +399,18 @@
                 <main class="main index-page">
             
         <article class="index-post">
-            <a class="abstract-title" href="/2022/12/19/HashMap%E8%A7%A3%E6%9E%90/">
-                <span class="abstract-title-text">HashMap解析</span>
+            <a class="abstract-title" href="/2022/12/20/HashMap%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/">
+                <span class="abstract-title-text">HashMap源码解析</span>
             </a>
             <div class="abstract-content">
-                一、部分常量说明1234567891011121314151617181920/** * 1.默认初始化容量，默认是16 * 2.必须是2的幂次方，便于通过位运算 (n - 1) &amp; hash 快速定位桶索引。较小的初始容量平衡了内存占用和哈希* 碰撞概率。*/static final int DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4;/*** 最大容量，2的30次方 */static final int MAXIMUM_CAPACITY = 1 &lt;&lt; 30;/*** 装载因子，0.75是统计出来的，能够平衡时间和空间成本 */s...
+                本篇文章将从源码的角度去分析 HashMap 的 put，resize，get 流程。如果只想了解这三个方法的原理的伙伴，可以只看这三个方法末尾的总结部分。
+一、部分变量说明1234567891011121314151617181920212223242526/** * 1.默认初始化容量，默认是16 * 2.必须是2的幂次方，便于通过位运算 (n - 1) &amp; hash 快速定位桶索引。较小的初始容量平衡了内存占用和哈希* 碰撞概率。*/static final int DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4;/*** 最大容量，2的30...
             </div>
             <!-- read more -->
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2025/04/10">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/12/19</span>
+                <div class="abstract-date" title="Last updated: 2025/04/12">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/12/20</span>
                 </div>
                 <!-- tags -->
             </div>
@@ -461,8 +462,8 @@
             <div class="archive-year"> 2022 </div>
             <ul class="year-list">
         <li class="archive-post-item">
-            <span class="archive-post-date">12/19</span>
-            <a class="archive-post-title" href="/2022/12/19/HashMap%E8%A7%A3%E6%9E%90/">HashMap解析</a>
+            <span class="archive-post-date">12/20</span>
+            <a class="archive-post-title" href="/2022/12/20/HashMap%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/">HashMap源码解析</a>
         </li>
         <li class="archive-post-item">
             <span class="archive-post-date">11/13</span>
