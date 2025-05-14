@@ -177,8 +177,8 @@
 <li><p>基于栈的指令优点是跨平台，指令集更小，编译器容易实现，缺点是性能比寄存器差，实现同样的功能需要更多的指令。</p>
 </li>
 </ul>
-<h4 id="详细结构"><a href="#详细结构" class="headerlink" title="详细结构"></a>详细结构</h4><p> <img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/.%5CJVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5C1.jpg" alt="在这里插入图片描述"> </p>
-<h3 id="Java代码的执行流程"><a href="#Java代码的执行流程" class="headerlink" title="Java代码的执行流程"></a>Java代码的执行流程</h3><p><img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/.%5CJVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5C2.jpg" alt="在这里插入图片描述"> </p>
+<h4 id="详细结构"><a href="#详细结构" class="headerlink" title="详细结构"></a>详细结构</h4><p> <img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1.jpg" alt="在这里插入图片描述"> </p>
+<h3 id="Java代码的执行流程"><a href="#Java代码的执行流程" class="headerlink" title="Java代码的执行流程"></a>Java代码的执行流程</h3><p><img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2.jpg" alt="在这里插入图片描述"> </p>
 <h3 id="JVM生命周期"><a href="#JVM生命周期" class="headerlink" title="JVM生命周期"></a>JVM生命周期</h3><h4 id="虚拟机的启动"><a href="#虚拟机的启动" class="headerlink" title="虚拟机的启动"></a>虚拟机的启动</h4><p>Java 虚拟机的启动是通过引导类加载器（bootstrap class loader）创建一个初始化类（initial class）来完成的，这个类是由虚拟机的具体实现指定的。</p>
 <h4 id="虚拟机的执行"><a href="#虚拟机的执行" class="headerlink" title="虚拟机的执行"></a>虚拟机的执行</h4><ul>
 <li><p>一个运行中的 Java 虚拟机有着一个清晰的任务：执行 Java 程序。</p>
@@ -294,7 +294,7 @@
 <li>如果父类加载器还存在其父类加载器，则进一步向上委托，依次递归，请求最终将到达顶层的启动类加载器。</li>
 <li>如果父类加载器可以完成类加载任务，就成功返回，倘若父类加载器无法完成此加载任务，子加载器才会尝试自己去加载，这就是双亲委派模式。</li>
 </ol>
-<p> <img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/.%5CJVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5C3.jpg" alt="在这里插入图片描述"> </p>
+<p> <img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3.jpg" alt="在这里插入图片描述"> </p>
 <h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
 <li>避免类的重复加载。</li>
 <li>保护程序安全，防止核心 API 被随意篡改。<ul>
@@ -326,7 +326,7 @@
 <li><p>除了以上几种情况，其他使用 Java 类的方式都被看做类的被动使用，都不会导致类的初始化。</p>
 </li>
 </ul>
-<h2 id="Runtime-Data-Area"><a href="#Runtime-Data-Area" class="headerlink" title="Runtime Data Area"></a>Runtime Data Area</h2><h3 id="运行时数据区结构"><a href="#运行时数据区结构" class="headerlink" title="运行时数据区结构"></a>运行时数据区结构</h3><h4 id="线程划分结构图"><a href="#线程划分结构图" class="headerlink" title="线程划分结构图"></a>线程划分结构图</h4><p><img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/.%5CJVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5C4.jpg" alt="在这里插入图片描述"></p>
+<h2 id="Runtime-Data-Area"><a href="#Runtime-Data-Area" class="headerlink" title="Runtime Data Area"></a>Runtime Data Area</h2><h3 id="运行时数据区结构"><a href="#运行时数据区结构" class="headerlink" title="运行时数据区结构"></a>运行时数据区结构</h3><h4 id="线程划分结构图"><a href="#线程划分结构图" class="headerlink" title="线程划分结构图"></a>线程划分结构图</h4><p><img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/4.jpg" alt="在这里插入图片描述"></p>
 <p>线程独立区域：程序计数器、栈、本地栈。</p>
 <p>线程共享区域：堆、方法区。</p>
 <p><strong>在 Hotspot JVM 中，每个线程都与操作系统的本地线程直接映射。</strong></p>
@@ -564,7 +564,7 @@
 <li><p><strong>Tenure Generation Space（老年区）</strong></p>
 </li>
 <li><p><strong>Meta Space</strong>（元空间，在 JDK8 之前为 <strong>Permanent Space</strong>（永久区）） </p>
-<p> <img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/.%5CJVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5C5.jpg" alt="在这里插入图片描述"> </p>
+<p> <img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/5.jpg" alt="在这里插入图片描述"> </p>
 </li>
 <li><p>存储在 JVM 中的 Java 对象可以被划分为两类</p>
 <ul>
@@ -707,7 +707,7 @@
 </blockquote>
 <ul>
 <li><p>到了 JDK8，Hotspot 采用元空间代替了永久代。</p>
-<p> <img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/.%5CJVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5C6.jpg" alt="在这里插入图片描述"> </p>
+<p> <img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/6.jpg" alt="在这里插入图片描述"> </p>
 </li>
 <li><p>元空间的本质和永久代类似，都是对 JVM 规范中方法区的实现。不过元空间与永久代最大的区别在于：<strong>元空间不在虚拟机设置的内存中，而是使用本地内存。</strong></p>
 </li>
@@ -1062,13 +1062,13 @@
 </ul>
 </li>
 </ul>
-<p><img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/.%5CJVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5C7.jpg" alt="使用句柄"></p>
+<p><img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/7.jpg" alt="使用句柄"></p>
 <ul>
 <li><p><strong>直接指针（Hotspot 采用）</strong></p>
 <ul>
 <li>访问速度较块</li>
 </ul>
-<p><img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/.%5CJVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%5C8.jpg" alt="使用直接指针"></p>
+<p><img src="/2022/12/13/JVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/8.jpg" alt="使用直接指针"></p>
 </li>
 </ul>
 <h2 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h2><blockquote>
